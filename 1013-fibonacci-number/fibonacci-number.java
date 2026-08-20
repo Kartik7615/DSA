@@ -1,15 +1,16 @@
 class Solution {
     public int fib(int n) {
-        if(n <= 1) return n;
+        if(n == 0) return 0;
 
-        int a = 0, b = 1;
+        int prev2 = 0;
+        int prev1 = 1;
 
-        for(int i = 2; i <= n; i++){
-            int temp = a + b;
-            a = b;
-            b = temp;
+        for(int i = 1; i < n; i++){
+            int curr = prev1 + prev2;
+
+            prev2 = prev1;
+            prev1 = curr;
         }
-
-        return b;
+        return prev1;
     }
 }
